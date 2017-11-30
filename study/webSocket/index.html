@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+
+        if (typeof (Worker) != 'undefined'){
+            console.info("you are true");
+        } else {
+            console.info("you are false!");
+        }
+
+        var worker = new Worker("stufftodo.js");
+        worker.postMessage({
+
+            type:"command",
+            message:"start!"
+        });
+
+        worker.onmessage = function (event) {
+            var  data = event.data;
+            // 对数据进行处理
+        }
+
+        // worker 遇到错误的时候就会触发 onerror 方法.处理错误的时候始终都要使用该事件
+        worker.onerror = function (event) {
+            console.info("ERROR:"+event.filename +event.message);
+        }
+
+        // 终止worker
+        worker.terminate();
+
+        self.onmessage = function (event) {
+            var data = event.data;
+
+            data.sort(function (a,b){
+                return a-b;
+            });
+            self.postMessage(data);
+
+
+            self.close();
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>
