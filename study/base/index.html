@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jhone 博客前段</title>
+    <script type="text/javascript" src="js/base.js"></script>
+
+    // 自定义js
+    <script type="text/javascript">
+
+        window.onload = function () {
+            console.info(Base.getId("_div").innerHTML);
+            console.info(Base.getName("_div")[0].innerHTML);
+            console.info(Base.getTagName("div")[0].innerHTML);
+
+
+            Base.getId("_div").css("background_color","red");
+        }
+    </script>
+</head>
+<body>
+
+<div id="_div" name="_div">
+
+    <h1>标题</h1>
+</div>
+</body>
+</html>
