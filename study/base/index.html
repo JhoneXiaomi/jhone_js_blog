@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>jhone 博客前段</title>
+
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+
     <script type="text/javascript" src="js/base.js"></script>
 
     // 自定义js
@@ -27,9 +30,18 @@
             $().getId("_but").click(function () {
                console.info("you click _but...");
             });
-
-            document.getElementById("_div").addClass("table_one");
+            $().getId("_but").addClass("_but");
+          //  document.getElementById("_div").addClass("table_one");
             //$().getId("_div").html("<div>你好</div>")
+            console.info(document.getElementById("_but").style);
+
+            $().getId("member").hover(function () {
+                $(this).css('background','url(images/arrow2.png)no-repeat 55px center');
+                $().getId('ul').show();
+            },function () {
+                $(this).css('background','url(images/arrow.png) no-repeat 55px center');
+                $().getId('ul').hide();
+            });
         }
     </script>
 </head>
@@ -38,7 +50,11 @@
 <div id="_div" name="_div">
 
     <h1>标题</h1>
-    <input type="button" value="test" id="_but" name="_but"/>
+    <input type="button" value="test" id="_but" name="_but" />
+</div>
+
+<div>
+    <input id="member"/>
 </div>
 </body>
 </html>
