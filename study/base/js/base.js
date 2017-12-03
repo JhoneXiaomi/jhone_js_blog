@@ -69,6 +69,7 @@ Base.prototype.click = function (fn) {
     return this;
 };
 
+//
 Base.prototype.css = function (attr,val) {
 
     for (var i=0;i<this.elements.length;i++) {
@@ -78,10 +79,23 @@ Base.prototype.css = function (attr,val) {
     return this;
 };
 
+// 添加类
 Base.prototype.addClass = function (className) {
+
     for (var i=0;i<this.elements.length;i++) {
-        if (this.elements[i].className.match(new RegExp('(\\s|^)'+className+'(\\s|$)'))) {
+        if (!this.elements[i].className.match(new RegExp('(\\s|^)'+className+'(\\s|$)'))) {
             this.elements[i].className += ''+ className;
+        }
+    }
+    return this;
+};
+
+// 去除类
+Base.prototype.removeClass = function (className) {
+
+    for (var i=0;i<this.elements.length;i++) {
+        if (this.elements[i].className.match(new RegExp('(\\s|^)' + className + '(\\s|$)'))) {
+            this.elements[i].className = this.elements[i].className.replace(new RegExp('(\\s|^)' + className + '(\\s|$)'),'');
         }
     }
     return this;
