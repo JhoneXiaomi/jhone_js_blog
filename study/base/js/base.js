@@ -134,6 +134,25 @@ Base.prototype.hover = function (over,out) {
     return this;
 };
 
+
+// 添加窗体居中方法
+Base.prototype.center = function (width,height) {
+
+    for(var i=0;i<this.elements.length;i++){
+        this.elements[i].style.top = (document.documentElement.clientHeight-height)/2 - 20 + 'px';
+        this.elements[i].style.left = (document.documentElement.clientWidth - width)/2 + 'px';
+    }
+
+    return this;
+};
+
+
+// 浏览器窗体变动时间
+Base.prototype.resize = function (fn) {
+
+    window.onresize =fn;
+    return this;
+};
 // 未来避免在前台new 一个对象，我们可以在库里面直接new一个对象
 var $ = function (_this) {
 

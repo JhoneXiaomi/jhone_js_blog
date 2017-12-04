@@ -42,6 +42,23 @@
                 $(this).css('background','url(images/arrow.png) no-repeat 55px center');
                 $().getId('ul').hide();
             });
+
+            // 使得窗体集中显示
+            $().getId('_login').center(200,300).resize(function () {
+                $().getId('_login').center(200,300);
+                
+            });
+
+            // 打开窗体
+            $().getId("_login").click(function () {
+                    $().getId('_login').css("display","block");
+            });
+
+            // 关闭窗体
+            $().getId("_close").click(function () {
+                $().getId("_login").css("display","none");
+            });
+
         }
     </script>
 </head>
@@ -56,5 +73,9 @@
 <div>
     <input id="member"/>
 </div>
+
+<input id="_close" value="关闭" type="button"/>
+
+<div id="_login" class="_login"></div>
 </body>
 </html>
