@@ -153,6 +153,24 @@ Base.prototype.resize = function (fn) {
     window.onresize =fn;
     return this;
 };
+
+// 窗体锁定函数的编写
+Base.prototype.lock = function () {
+  for(var i=0;i<this.elements.length;i++){
+      this.elements[i].style.display = "none";
+  }
+  return this;
+};
+
+// 窗体接触锁定的事件
+Base.prototype.unlock = function () {
+    for(var i=0;this.elements.length;i++){
+        this.elements[i].style.display = 'block';
+    }
+    return this;
+};
+
+
 // 未来避免在前台new 一个对象，我们可以在库里面直接new一个对象
 var $ = function (_this) {
 
