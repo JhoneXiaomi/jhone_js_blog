@@ -164,12 +164,51 @@ Base.prototype.lock = function () {
 
 // 窗体接触锁定的事件
 Base.prototype.unlock = function () {
+
     for(var i=0;this.elements.length;i++){
         this.elements[i].style.display = 'block';
     }
     return this;
 };
 
+// 添加扩展插件
+Base.prototype.extend = function (name,fn) {
+
+    Base.prototype[name] = fn;
+};
+
+$().extend('drag',function (tags) {
+
+    var flag = false;
+    for (var i=0;i<tags.length;i++) {
+        if (e.target==tags[i]) {
+            flag = true;
+            break;
+        }
+    }
+    if (flag) {
+        addEvent(document,'mousemove',move);
+        addEvent(document,'mo');
+    } else {
+        removeEvent(document,'mousemove',move);
+        removeEvent(document,'mouseup',up);
+    }
+});
+
+// 获取某个节点，返回一个节点对象
+Base.prototype.getElement = function (num) {
+
+    return this.elements[num];
+};
+
+// 获取，某一个节点，返回节点对象
+Base.prototype.eq = function (num) {
+
+    var element = this.elements[num];
+    this.elements = [];
+    this.elements[0] = element;
+    return this;
+};
 
 // 未来避免在前台new 一个对象，我们可以在库里面直接new一个对象
 var $ = function (_this) {
