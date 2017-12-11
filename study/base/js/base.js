@@ -210,6 +210,18 @@ Base.prototype.eq = function (num) {
     return this;
 };
 
+// 编写动画函数
+Base.prototype.animation = function (attr,step,target,t) {
+
+    for (var i=0;i<this.elements.length;i++) {
+        var element = this.elements[i];
+        var timer = setInterval(function () {
+           element.style[attr] = getStyle(element,attr) +step +'px';
+           if (getStyle(element,attr) == target) { clearInterval(timer)};
+        });
+    }
+    return this;
+};
 // 未来避免在前台new 一个对象，我们可以在库里面直接new一个对象
 var $ = function (_this) {
 
