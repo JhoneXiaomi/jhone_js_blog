@@ -172,6 +172,7 @@ Base.prototype.unlock = function () {
 };
 
 // 添加扩展插件
+/*
 Base.prototype.extend = function (name,fn) {
 
     Base.prototype[name] = fn;
@@ -194,6 +195,7 @@ $().extend('drag',function (tags) {
         removeEvent(document,'mouseup',up);
     }
 });
+*/
 
 // 获取某个节点，返回一个节点对象
 Base.prototype.getElement = function (num) {
@@ -222,6 +224,25 @@ Base.prototype.animation = function (attr,step,target,t) {
     }
     return this;
 };
+
+
+// 判断浏览器类别
+(function () {
+
+    window.sys = {};
+    var ua = navigator.userAgent.toLowerCase();
+    var s;
+    (s=ua.match(/mise([\d]+)/))?sys.ie = s[1]:
+        (s=ua.match(/firefox\/([\d.]+)/))?sys.firefox = s[1]:
+            (s=ua.match(/mozilla\/([\d.]+)/))?sys.chrome = s[1]:
+                (s=ua.match(/opra.*version\/([\d.]+)/))?sys.opra = s[1]:
+                    (s=ua.match(/version\/([\d.]+).*satari/))?sys.safari = s[1]:0;
+
+})();
+
+console.info("the type of browser:" + sys[1]);
+
+
 // 未来避免在前台new 一个对象，我们可以在库里面直接new一个对象
 var $ = function (_this) {
 
