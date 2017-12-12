@@ -32,3 +32,24 @@ function abc() {
 }
 
 console.info((abc).constructor == (function abc() {}).constructor);
+
+
+// 测试正则,不区分大小写
+/*
+var pattern = new RegExp('Box','i');
+var str = 'box';
+console.info(pattern.test(str));*/
+
+// 测试正则,区分大小写
+/*
+var pattern = new RegExp('Box');
+var str = 'box';
+console.info(pattern.test(str));*/
+
+/*
+console.info(/^Box$/i.test('box'));*/
+
+
+var pattern = new RegExp('Box','i');
+var str = 'this is box!';
+console.info(typeof pattern.exec(str));
