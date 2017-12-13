@@ -49,7 +49,36 @@ console.info(pattern.test(str));*/
 /*
 console.info(/^Box$/i.test('box'));*/
 
-
+/*
 var pattern = new RegExp('Box','i');
 var str = 'this is box!';
-console.info(typeof pattern.exec(str));
+console.info(typeof pattern.exec(str));*/
+
+
+/**
+ *
+ *
+ * string  对象中的正则表达式方法*/
+
+// 使用match方法获取匹配的数组
+/*
+var pattern = /box/ig; //全局搜索
+var str = 'this is a Box!that is a BOx too!';
+console.info(str.match(pattern));
+console.info(str.match(pattern).length);*/
+
+/**
+ *
+ * search 查找到即返回，也就是说无需要g全局
+ * 使用search 来查找匹配的数据*/
+/*
+var pattern = /box/ig;
+var str = 'this is box,that is a box too!';
+console.info(str.search(pattern));*/
+
+// 使用repleace 替换匹配到的数据
+var pattern = / /ig;
+var str = 'this is a box,that is a box too';
+console.info(str.replace(pattern,'_'));
+
+
