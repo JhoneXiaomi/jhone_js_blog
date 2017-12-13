@@ -77,8 +77,15 @@ var str = 'this is box,that is a box too!';
 console.info(str.search(pattern));*/
 
 // 使用repleace 替换匹配到的数据
+/*
 var pattern = / /ig;
 var str = 'this is a box,that is a box too';
-console.info(str.replace(pattern,'_'));
+console.info(str.replace(pattern,'_'));*/
 
 
+// 使用split 拆分字符串数组
+
+/*
+var pattern = /box/ig;
+var str = 'this is a box,that is box too';
+console.info(str.split(pattern));*/
