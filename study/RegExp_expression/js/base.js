@@ -89,3 +89,55 @@ console.info(str.replace(pattern,'_'));*/
 var pattern = /box/ig;
 var str = 'this is a box,that is box too';
 console.info(str.split(pattern));*/
+
+/*
+var pattern = /box/;
+var str = 'this is a box';
+console.info(str.match(pattern));*/
+
+// '.'匹配除了换行符外的任意字符
+/*
+var pattern = /g.ogle/;
+var str = 'google';
+console.info(pattern.test(str));*/
+
+// '*'表示匹配任意个字符,0个以上
+/*
+var pattern = /g.*gle/;
+var str = 'google';
+console.info(pattern.test(str));*/
+
+// '+'表示匹配任意个字符,1个以上
+/*
+var pattern = /go+gle/;
+var str = 'google';
+console.info(pattern.test(str));*/
+
+// '{2,4}' 表示出现2到4次，包含2和4
+/*
+var pattern = /go{2,4}gle/;
+var str = 'google';
+console.info(pattern.test(str));*/
+
+// '[a-z]' 表示小写字母a 到 z
+/*
+var pattern = /[a-z]oogle/;
+var str = 'google';
+console.info(pattern.test(str))*/
+
+
+// 从头开始匹配
+/*
+var pattern = /^[0-9]oogle/;
+var str = '6oogle';
+console.info(pattern.test(str));*/
+
+/**
+ * '\d' 数字匹配
+ * '\D' 非数字匹配
+ * '\W' 非字母数字下划线
+ * '\w' 数字字母及下划线*/
+
+var pattern = /go?gle/;
+var str = 'google';
+console.info(pattern.test(str));
